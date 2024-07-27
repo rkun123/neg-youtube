@@ -24,8 +24,17 @@ jobs:
       - name: Build
         run: npm run build
       - name: Upload artifact
+        id: artifact-upload
         uses: actions/upload-artifact@v4
         with:
           name: neg-youtube
           path: "./dist"
           if-no-files-found: error
+      - name: Notify Discord
+        run: |
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d '{
+            "content": "新しいねぐ子の拡張機能がリリースされました！\nダウンロード: ${{ steps.artifact-upload.outputs.artifact-url }}"
+          }' \
+          ${{ secrets.DISCORD_WEBHOOK_URL }}
