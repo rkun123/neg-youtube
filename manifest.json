@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "ねぐ子で再生するボタン",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "js": ["src/content.tsx"],
+      "matches": ["https://www.youtube.com/watch*"]
+    }
+  ]
+}

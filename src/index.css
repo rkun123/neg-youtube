@@ -1,0 +1,11 @@
+.neg-play-button-container {
+  display: flex;
+  flex-direction: row;
+}
+.neg-play-button {
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+div#title.style-scope.ytd-watch-metadata {
+}
