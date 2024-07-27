@@ -23,6 +23,8 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+        with:
+          SERVER_HOST: ${{ RKUN_SERVER_HOST }}
       - name: Upload artifact
         id: artifact-upload
         uses: actions/upload-artifact@v4
