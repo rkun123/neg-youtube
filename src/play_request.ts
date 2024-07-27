@@ -6,7 +6,7 @@ export async function playRequest(location: Location) {
     url: `https://www.youtube.com/watch?v=${videoID}`,
   });
 
-  const res = await fetch(`https://${import.meta.env.SERVER_HOST}/v1/play`, {
+  const res = await fetch(`https://${import.meta.env.VITE_SERVER_HOST}/v1/play`, {
     method: "post",
     body,
   });

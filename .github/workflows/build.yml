@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          SERVER_HOST: ${{ secrets.RKUN_SERVER_HOST }}
+          VITE_SERVER_HOST: ${{ secrets.RKUN_SERVER_HOST }}
       - name: Upload artifact
         id: artifact-upload
         uses: actions/upload-artifact@v4
