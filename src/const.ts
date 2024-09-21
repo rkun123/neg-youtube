@@ -1,0 +1,1 @@
+export const CONFIG_DISCORD_NAME_KEY = "DISCORD_NAME";

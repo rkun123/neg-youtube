@@ -10,5 +10,6 @@
       "js": ["src/content.tsx"],
       "matches": ["https://www.youtube.com/watch*"]
     }
-  ]
+  ],
+  "permissions": ["storage"]
 }

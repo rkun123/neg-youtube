@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Play from "./Play";
-import "./index.css";
+import "./content.css";
 
 let interval = setInterval(() => {
   console.log("youtube element checking...");

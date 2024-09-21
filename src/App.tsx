@@ -1,45 +1,44 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import clsx from "clsx";
+import "./App.css";
+import { useEffect, useRef, useState } from "react";
+import Config from "./Config";
 
 function App() {
-  const [count, setCount] = useState(0)
+  function canUseStorage() {
+    return chrome.storage !== undefined;
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
+    <div
+      className={clsx(
+        "App",
+        "text-sm",
+        "text-slate-800",
+        "m-4",
+        "font-sans",
+        "min-w-32"
+      )}
+    >
+      <header className="App-header mb-2">
+        <div className={clsx("text-lg", "font-bold")}>ねぐ子 | 設定</div>
       </header>
+      {canUseStorage() ? (
+        <Config />
+      ) : (
+        <p
+          className={clsx(
+            "p-2",
+            "bg-red-500",
+            "font-bold",
+            "text-red-50",
+            "rounded"
+          )}
+        >
+          please grant chrome.storage API
+        </p>
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
