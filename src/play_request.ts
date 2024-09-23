@@ -1,6 +1,6 @@
 import { CHROME_NOTIFICATION_KEY, CONFIG_DISCORD_NAME_KEY } from "./const";
 
-export async function playRequest(location: Location): boolean {
+export async function playRequest(location: Location): Promise<boolean> {
   const url = new URL(location.href);
   const videoID = url.searchParams.get("v");
 
