@@ -1,8 +1,10 @@
 .neg-play-button-container {
-  display: flex;
-  flex-direction: row;
+  margin-left: .4rem;
+  font-size: 1.4rem;
 }
 .neg-play-button {
   cursor: pointer;
-  font-size: 1.4rem;
+}
+.neg-play-button-succeed {
+  color: var(--yt-spec-red-indicator);
 }
