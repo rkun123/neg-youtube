@@ -23,7 +23,7 @@ export function useVideos() {
             thumbnailURL: "",
           };
         })
-        .filter((v) => v !== null);
+        .filter((v): v is VideoMeta => v !== null);
       setVideos(videos);
     };
     chrome.tabs.onUpdated.addListener(refreshVideos);
