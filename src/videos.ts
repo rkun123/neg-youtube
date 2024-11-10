@@ -10,22 +10,21 @@ export function useVideos() {
   useEffect(() => {
     const refreshVideos = async () => {
       const tabs = await chrome.tabs.query({});
-      setVideos(
-        tabs
-          .map<VideoMeta | null>((t) => {
-            if (t.url === undefined) return null;
-            const m = t.url.match(regExp);
-            if (m === null) return null;
-            const id = m[1];
-            return {
-              tabID: t.id,
-              videoID: id,
-              title: t.title || "",
-              thumbnailURL: "",
-            };
-          })
-          .filter((v) => v !== null)
-      );
+      const videos = tabs
+        .map<VideoMeta | null>((t) => {
+          if (t.url === undefined) return null;
+          const m = t.url.match(regExp);
+          if (m === null) return null;
+          const id = m[1];
+          return {
+            tabID: t.id,
+            videoID: id,
+            title: t.title || "",
+            thumbnailURL: "",
+          };
+        })
+        .filter((v) => v !== null);
+      setVideos(videos);
     };
     chrome.tabs.onUpdated.addListener(refreshVideos);
     refreshVideos();
