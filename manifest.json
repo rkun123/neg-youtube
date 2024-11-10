@@ -5,13 +5,8 @@
   "action": {
     "default_popup": "index.html"
   },
-  "content_scripts": [
-    {
-      "js": ["src/content.tsx"],
-      "matches": ["https://www.youtube.com/watch*"]
-    }
-  ],
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://rkun-ambie-29.deno.dev/v1/play"],
   "icons": {
     "128": "icons/icon128w.png",
     "48": "icons/icon48w.png"
